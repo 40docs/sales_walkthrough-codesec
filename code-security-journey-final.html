@@ -124,7 +124,7 @@ svg.connectors{position:absolute;inset:0;width:100%;height:100%;pointer-events:n
   50%{box-shadow:0 0 0 7px transparent;}
 }
 .node-badge.visited{background:#3a3f4a!important;animation:none!important;box-shadow:none!important;}
-.node-badge.opt-badge{font-size:7px;font-weight:700;width:22px;letter-spacing:.3px;background:#444!important;}
+.node-badge.opt-badge{font-size:7px;font-weight:700;width:22px;letter-spacing:.3px;}
 
 /* status badges */
 .status-badge{
@@ -674,12 +674,12 @@ function renderDiagram(){
 
     const actDef=acts[(n.tagAct||n.act)-1];
     const bColor=actDef.accent;
-    let badgeHtml;
-    if(n.opt){
-      badgeHtml=`<span class="node-badge opt-badge ${visited.has(n.id)?'visited':''}">opt</span>`;
-    } else {
-      badgeHtml=`<span class="node-badge ${visited.has(n.id)?'visited':'pulse'}" style="background:${visited.has(n.id)?'#3a3f4a':bColor}">${n.badge}</span>`;
-    }
+    const isVisited=visited.has(n.id);
+    const badgeCls=n.opt?'node-badge opt-badge':'node-badge';
+    const vis=isVisited?'visited':'pulse';
+    const bg=isVisited?'#3a3f4a':bColor;
+    const label=n.opt?'opt':n.badge;
+    const badgeHtml=`<span class="${badgeCls} ${vis}" style="background:${bg}">${label}</span>`;
     el.innerHTML=`<div class="node-icon">${badgeHtml}${n.icon}</div><div class="node-label">${n.label}</div>`;
     el.onclick=()=>clickNode(n.id);
     d.appendChild(el);
