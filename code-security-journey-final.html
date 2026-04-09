@@ -124,7 +124,7 @@ svg.connectors{position:absolute;inset:0;width:100%;height:100%;pointer-events:n
   50%{box-shadow:0 0 0 7px transparent;}
 }
 .node-badge.visited{background:#3a3f4a!important;animation:none!important;box-shadow:none!important;}
-.node-badge.opt-badge{font-size:7px;font-weight:700;width:22px;letter-spacing:.3px;}
+.node-badge.opt-badge{font-size:7px;font-weight:700;width:18px;height:18px;letter-spacing:.3px;}
 
 /* status badges */
 .status-badge{
@@ -556,7 +556,7 @@ const nodes=[
    body:`<p>${g("DAST")} scans the running application from the outside — like an attacker would. It sends requests, probes endpoints, and finds vulnerabilities that only appear at runtime: authentication flaws, misconfigurations, exposed APIs.</p><p>While ${g("SAST")} reads the code, DAST tests the live application. They're complementary — SAST finds code-level bugs, DAST finds runtime problems.</p>`,
    seller:`DAST completes the picture. SAST checks the code, SCA checks the libraries, secrets scanning checks for credentials, and DAST checks the running application. Together, they cover the full attack surface.`,
   },
-  {id:"iacscan",badge:"opt",icon:"⚙️🔍",label:"IaC Scanning",act:4,acts:[4],opt:true,
+  {id:"iacscan",badge:"opt",icon:"🔍",label:"IaC Scanning",act:4,acts:[4],opt:true,
    x:"88%",y:"42%",
    tag:"THE ANSWER",tagAct:4,
    title:"IaC Scanning — Infrastructure as Code",
